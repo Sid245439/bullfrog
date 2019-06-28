@@ -4,7 +4,17 @@
 const Alexa = require("ask-sdk");
 const https = require("https");
 
+const app = new http.Server();
 
+app.on('request', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('Hello World');
+  res.end('\n');
+});
+
+app.listen(port, () => {
+  console.log(`${name} is listening on port ${port}`);
+});
 
 const invocationName = "bull frog";
 
